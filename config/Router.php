@@ -4,6 +4,7 @@ namespace config;
 
 // On importe le contrôleur d'erreurs pour afficher une page 404
 use App\Controllers\ErrorController;
+use App\Controllers\RegisterController;
 
 class Router
 {

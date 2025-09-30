@@ -6,5 +6,6 @@ use Config\Router;
 $router = new Router();
 
 $router->addRoute('/', 'HomeController', 'index');
+$router->addRoute('/insription', 'RegisterController', 'index');
 
 $router->handleRequest();

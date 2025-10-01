@@ -38,15 +38,15 @@ class User
         return $statement->execute([$this->pseudo, $this->password, $this->email, $this->picture, $this->description, $this->creation_date, $this->id_role]);
     }
 
-    public function getUserByEmail(): bool
+    public function getUserByEmail()
     {
         $pdo = Database::getConnection();
-        $sql = "SELECT `email` FROM `user` WHERE `email` = ?";
+        $sql = "SELECT `id_user`, `pseudo`, `password`, `email`, `picture`, `description`, `creation_date`, `id_role` FROM `user` WHERE `email` = ?";
         $statement = $pdo->prepare($sql);
         $statement->execute([$this->email]);
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         if($result){
-            return true;
+            return new User($result['id_user'], $result['pseudo'], $result['password'], $result['email'], $result['picture'], $result['description'], $result['creation_date'], $result['id_role']);
         }else{
             return false;
         }
@@ -64,6 +64,7 @@ class User
     }
     public function getPassword(): ?string
     {
+        var_dump($this->password);
         return $this->password;
     }
     public function getEmail(): ?string
@@ -76,7 +77,7 @@ class User
     }
     public function getDescription(): ?string
     {
-        return $this->getDescription;
+        return $this->description;
     }
     public function getCreationDate() : ?string
     {

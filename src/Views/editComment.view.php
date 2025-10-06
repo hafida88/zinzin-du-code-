@@ -16,6 +16,7 @@ require_once(__DIR__ . "/partials/head.view.php");
             ?>
         </div>
         <button type="submit" name="editComment" class="btn btn-warning">Modifier !</button>
+        <button type="submit" name="deleteComment" class="btn btn-danger">Supprimer !</button>
     </div>
 </form>
 <?php
